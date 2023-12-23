@@ -28,6 +28,8 @@ body {
 input {
     flex: 1;
     padding: 8px;
+    border: none;
+    outline: none;
 }
 
 button {

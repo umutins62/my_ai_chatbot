@@ -5,22 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>Chatbot Sayfası</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: "Courier New", Courier, monospace;
             margin: 0;
             padding: 0;
             display: flex;
         }
 
         #sidebar {
+            font-family: "Courier New", Courier, monospace;
             width: 250px;
             height: 100vh;
-            background-color: #333;
-            color: white;
+            color: black;
             padding: 20px;
+            border-left-color: black;
         }
 
         #chat-container {
@@ -36,7 +39,7 @@
         }
 
         ul li a {
-            color: white;
+            color: lightslategray;
             text-decoration: none;
         }
 
@@ -46,9 +49,10 @@
 <body>
 
 <div id="sidebar">
-    <h4>Gemini Chat Bot</h4>
+    <h4 style="margin-top: 20px;padding-bottom: 5px;justify-content: center;"><img
+            src="{% get_media_prefix %}chat-bot.png" width="24" height="24">Chat Bot</h4>
     <section class="today">
-        <h5>Bugün</h5>
+        <h5 style="margin-top: 50px">Geçmiş</h5>
         <ul>
             <li><a href="#">Ana Sayfa</a></li>
             <li><a href="#">Sıkça Sorulan Sorular</a></li>
@@ -58,7 +62,7 @@
             <li><a href="#">İletişim</a></li>
         </ul>
     </section>
-
+    <hr>
     <section class="sidebar">
         <h5>Hızlı Erişim</h5>
         <ul>
@@ -70,7 +74,7 @@
             <li><a href="#">İletişim</a></li>
         </ul>
     </section>
-
+    <hr>
     <section class="sidebar">
         <h5>Ayarlar</h5>
         <ul>
@@ -78,12 +82,38 @@
 
         </ul>
     </section>
+
+    <hr>
+
+    <section class="sidebar">
+        <div class="flex-container" style="justify-content: center;margin-left: 20px">
+           
+            <div class="profile-icons mt-3">
+                <a href="https://github.com/umutins62" target="_blank" style="text-decoration: none; ">
+                    <img src="{% get_media_prefix %}github.png" width="24" height="24" alt="Instagram"
+                         style="opacity: 50%">
+                </a>
+
+
+                <a href="https://www.linkedin.com/in/umut-%C3%A7elik-837897169/" target="_blank" style="text-decoration: none;margin-left: 30px ">
+                   <img src="{% get_media_prefix %}linkedin.png" width="24" height="24" alt="Instagram"
+                         style="opacity: 50%">
+                </a>
+
+                <a href="https://umutins62.pythonanywhere.com/" target="_blank" style="text-decoration: none;margin-left: 30px ">
+                    <img src="{% get_media_prefix %}portfolio.png" width="24" height="24" alt="Instagram"
+                         style="opacity: 50%">
+                </a>
+
+
+            </div>
+    </section>
 </div>
 
 <div id="chat-container">
     <div style="text-align: center">
         <img src="{% get_media_prefix %}chat.png">
-        <h5 style="text-align: center">Size nasıl yardımcı olabilirim?</h5>
+        <h5 style="text-align: center;">Size nasıl yardımcı olabilirim?</h5>
     </div>
 
 
@@ -92,18 +122,18 @@
             <!-- Buraya chat mesajları eklenecek -->
         </div>
 
-        <div class="card" style="border-radius: 10px;display: flex">
+        <div class="card" style="border-radius: 10px;display: flex;height: 50px;
+  justify-content: center;">
             <div class="input-container">
-
                 <input type="text" id="messageInput" placeholder="Mesajınızı yazın..."
-                       style="border: none;color: darkgray" height="36">
+                       style="border: none;color: darkgray;font-size: 14px; outline: none;">
                 <a onclick="sendMessage()" style="cursor: pointer">
                     <img src="{% get_media_prefix %}send.png" width="32" height="32" alt="Gönder" style="opacity: 50%">
                 </a>
             </div>
 
         </div>
-        <p style="text-align: center;margin-top: 10px;font-size: 14px;color: lightslategray">© 2023 Umut CELIK Chat
+        <p style="text-align: center;margin-top: 20px;font-size: 14px;color: lightslategray">© 2023 Umut CELIK Chat
             Bot</p>
     </div>
 
