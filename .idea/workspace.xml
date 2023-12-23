@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8453bc82-9de1-462c-ae3d-2df42de92b55" name="Changes" comment="feat:edit chat page-2">
+    <list default="true" id="8453bc82-9de1-462c-ae3d-2df42de92b55" name="Changes" comment="feat:edit chat page-3">
+      <change afterPath="$PROJECT_DIR$/my_chat_bot/utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_chat_bot/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/my_chat_bot/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,9 +19,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
         <option value="CSS File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -63,6 +67,10 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\umuti\PycharmProjects\ChatBot\media" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\umuti\PycharmProjects\ChatBot\my_chat_bot" />
+      <recent name="C:\Users\umuti\PycharmProjects\ChatBot" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="ChatBot" type="Python.DjangoServer" factoryName="Django server">
@@ -107,7 +115,8 @@
       <option name="presentableId" value="Default" />
       <updated>1703250508955</updated>
       <workItem from="1703250515027" duration="10778000" />
-      <workItem from="1703325579549" duration="3205000" />
+      <workItem from="1703325579549" duration="6780000" />
+      <workItem from="1703344203494" duration="6034000" />
     </task>
     <task id="LOCAL-00001" summary="feat:First Commit">
       <option name="closed" value="true" />
@@ -157,7 +166,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703328671143</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="feat:edit chat page-3">
+      <option name="closed" value="true" />
+      <created>1703329575505</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1703329575505</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -181,6 +198,7 @@
     <MESSAGE value="feat:my app is alive!!!" />
     <MESSAGE value="feat:edit chat page-1" />
     <MESSAGE value="feat:edit chat page-2" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat:edit chat page-2" />
+    <MESSAGE value="feat:edit chat page-3" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:edit chat page-3" />
   </component>
 </project>
