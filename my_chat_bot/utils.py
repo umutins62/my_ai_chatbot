@@ -47,7 +47,7 @@ def initials_image(name):
 
     # Eğer açık renkse siyah, koyu renkse beyaz yazı rengi olarak belirle
     if avg_bg > 127:
-        text_color = 'DimGray'
+        text_color = 'dimgray'
     else:
         text_color = 'white'
 
