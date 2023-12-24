@@ -14,7 +14,7 @@
     <title>Chatbot Sayfası</title>
     <style>
         body {
-            font-family: "Courier New", Courier, monospace;
+        {#font-family: "Courier New", Courier, monospace;#} font-family: "Courier New", Courier, monospace;
             margin: 0;
             padding: 0;
             display: flex;
@@ -60,6 +60,7 @@
         .dropdown-toggle {
             background: none;
             border: none;
+
         }
 
         .dropdown-menu a:hover {
@@ -74,7 +75,11 @@
 
 
 <div id="sidebar">
-    <h4 style="margin-top: 20px;padding-bottom: 5px;justify-content: center;"><i class="bi bi-robot"></i> Chat Bot</h4>
+    <a href="http://localhost:8000/" style="text-decoration: none;cursor: pointer;color: black">
+        <h4 style="margin-top: 20px;padding-bottom: 5px;justify-content: center;"><i class="bi bi-robot"></i> Chat Bot
+        </h4>
+    </a>
+
 
     <section class="today">
         <button class="btn btn-outline-secondary"
@@ -84,7 +89,7 @@
     </section>
 
     <section class="today" style="height: 60vh;">
-        <h5 style="margin-top: 50px"><i class="bi bi-clock-history"></i>  Geçmiş</h5>
+        <h5 style="margin-top: 50px"><i class="bi bi-clock-history"></i> Sohbetlerim</h5>
         <ul>
             <li><a href="#">Ana Sayfa</a></li>
             <li><a href="#">Sıkça Sorulan Sorular</a></li>
@@ -96,8 +101,8 @@
     </section>
 
     <section class="sidebar">
-        <div class="dropdown" style="text-align: left">
-            <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" 
+        <div class="dropdown" style="text-align: left;">
+            <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                data-bs-toggle="dropdown" aria-expanded="false">
 
                 <img src="{% get_media_prefix %}profil_picture.png" class="profile-img" width="32" height="32">
@@ -106,10 +111,10 @@
             </a>
 
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="background-color: antiquewhite;">
-                <li><a class="dropdown-item" href="#"><i class="bi bi-person-vcard"></i>  Profil</a></li>
-                <li><a class="dropdown-item" href="#"><i class="bi bi-gear"></i>  Ayarlar</a></li>
-                <li><a class="dropdown-item" href="#"><i class="bi bi-journal-x"></i>  Sohbeti Temizle</a></li>
-                <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-right"></i>  Çıkış</a></li>
+                <li><a class="dropdown-item" href="#"><i class="bi bi-person-vcard"></i> Profil</a></li>
+                <li><a class="dropdown-item" href="#"><i class="bi bi-gear"></i> Ayarlar</a></li>
+                <li><a class="dropdown-item" href="#"><i class="bi bi-trash"></i> Sohbeti Temizle</a></li>
+                <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-right"></i> Çıkış</a></li>
             </ul>
         </div>
 
@@ -134,7 +139,7 @@
                 <img src="{% get_media_prefix %}portfolio.png" width="24" height="24" alt="Instagram"
                      style="opacity: 50%">
             </a>
-
+            <p style="text-align: left;margin-top: 20px;font-size: 14px;color: lightslategray">© 2023 Umut CELIK</p>
 
         </div>
     </section>
@@ -157,22 +162,33 @@
 
     <div class="chat-container">
         <div class="chat-messages" style="border: none">
-            <!-- Buraya chat mesajları eklenecek -->
+            {% for chat in chats %}
+                <b>Ben:</b> {{ chat.message }} <br/>
+                <b>Bot:</b> {{ chat.response }} <br/><br/>
+            {% endfor %}
         </div>
 
-        <div class="card" style="border-radius: 10px;display: flex;height: 50px;
+        <form  method="post">
+            {% csrf_token %}
+            <div class="card" style="border-radius: 10px;display: flex;height: 50px;
   justify-content: center;">
-            <div class="input-container">
-                <input type="text" id="messageInput" placeholder="Mesajınızı yazın..."
-                       style="border: none;color: darkgray;font-size: 14px; outline: none;">
-                <a onclick="sendMessage()" style="cursor: pointer">
-                    <img src="{% get_media_prefix %}send.png" width="32" height="32" alt="Gönder" style="opacity: 50%">
-                </a>
-            </div>
+                <div class="input-container">
+                    <input type="text" id="messageInput" name="message" placeholder="Mesajınızı yazın..."
+                           style="border: none;color: darkgray;font-size: 14px; outline: none;">
+{#                    <a type="submit" style="cursor: pointer">#}
+{#                        <img src="{% get_media_prefix %}send.png" width="32" height="32" alt="Gönder"#}
+{#                             style="opacity: 50%">#}
+{#                    </a>#}
+                    
+                    <button type="submit" style="cursor: pointer;border: none;background-color: transparent">
+                        <img src="{% get_media_prefix %}send.png" width="32" height="32" alt="Gönder"
+                             style="opacity: 50%">
+                    </button>
+                </div>
 
-        </div>
-        <p style="text-align: center;margin-top: 20px;font-size: 14px;color: lightslategray">© 2023 Umut CELIK Chat
-            Bot</p>
+            </div>
+        </form>
+
     </div>
 
 
