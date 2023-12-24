@@ -3,7 +3,7 @@ from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from .utils import initials_image
 import google.generativeai as genai
-from .models import ChatMessage, genaiSetting
+from .models import ChatMessage, genaiSetting, Conversation
 
 
 # Create your views here.
@@ -12,9 +12,12 @@ def index(request):
     name = "Umut ÇELİK"
     initials_image(name)
 
+    # Yeni bir Conversation oluştur
+    conversation = Conversation.objects.create()
+
     if request.method == 'POST':
         message = request.POST['message']
-        print(message)
+
 
         env = environ.Env(DEBUG=(bool, True), )
         environ.Env.read_env()
@@ -27,6 +30,8 @@ def index(request):
         token = my_instance.max_length if my_instance else None
         top_p = my_instance.top_p if my_instance else None
         top_k = my_instance.top_k if my_instance else None
+
+        print(temperature, token, top_p, top_k)
 
 
         model = genai.GenerativeModel('gemini-pro')
@@ -51,14 +56,29 @@ def index(request):
 
         string = " ".join(all_mesages)
 
-        chat = ChatMessage(message=message, response=string)
-        chat.save()
+        # Kullanıcı mesajını ekle
+        ChatMessage.objects.create(
+            conversation=conversation,
+            message=message,
+            sender='user'
+        )
 
-        chats = ChatMessage.objects.all()
+        # Chatbot cevabını ekle
+        ChatMessage.objects.create(
+            conversation=conversation,
+            message=string,
+            sender='bot'
+        )
+
+
 
         return redirect('index')
 
     else:
-        chats = ChatMessage.objects.all()
+        conversations = Conversation.objects.all()
 
-        return render(request, 'index.html', {'chats': chats, "name": name})
+        # Son konuşmaları al
+        chats = ChatMessage.objects.filter(conversation__in=conversations).order_by('-timestamp')
+
+        context = {'chats': chats, 'name': name}
+        return render(request, 'index.html', context)
