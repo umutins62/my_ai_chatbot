@@ -24,10 +24,7 @@
 
 
     <section class="today">
-        <button class="btn btn-outline-secondary"
-                style="margin-top: 20px;height: 30px;display: flex; align-items: center; justify-content: center;">Yeni
-            Sohbet
-        </button>
+        <a href="{% url 'new_conversation' %}">Yeni Sohbet Başlat</a>
     </section>
 
     <section class="today" style="height: 60vh;">
@@ -101,6 +98,10 @@
         <h5 style="text-align: center;">Size nasıl yardımcı olabilirim?</h5>
     </div>
 
+   
+
+
+
     <div class="chat-messages" style="border: none;padding: 20px">
         {% for chat in chats %}
 
@@ -134,8 +135,8 @@
                         style="cursor: pointer;border: none;background-color: transparent">
                     <img src="{% get_media_prefix %}send.png" width="32" height="32" alt="Gönder"
                          style="opacity: 50%">
-                    
-                    
+
+
                 </button>
             </div>
 
@@ -148,15 +149,15 @@
 <script>
     const sendButton = document.getElementById('sendButton');
 
-    sendButton.addEventListener('mouseover', function() {
+    sendButton.addEventListener('mouseover', function () {
         this.style.filter = 'brightness(1.5)'; /* Örnek: Parlaklığı artırabilirsiniz */
     });
 
-    sendButton.addEventListener('mouseout', function() {
+    sendButton.addEventListener('mouseout', function () {
         this.style.filter = 'brightness(1)'; /* Mouse çekildiğinde orijinal parlaklık */
     });
 
-    sendButton.addEventListener('click', function() {
+    sendButton.addEventListener('click', function () {
         // Tıklandığında yapılacak işlemler
         this.style.filter = 'brightness(0.8)'; /* Örnek: Tıklama sırasında parlaklığı azaltabilirsiniz */
     });

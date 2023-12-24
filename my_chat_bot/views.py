@@ -11,13 +11,11 @@ from .models import ChatMessage, genaiSetting, Conversation
 def index(request):
     name = "Umut ÇELİK"
     initials_image(name)
+    conversation = get_active_conversation(Conversation.objects.all())
 
-    # Yeni bir Conversation oluştur
-    conversation = Conversation.objects.create()
 
     if request.method == 'POST':
         message = request.POST['message']
-
 
         env = environ.Env(DEBUG=(bool, True), )
         environ.Env.read_env()
@@ -33,7 +31,6 @@ def index(request):
 
         print(temperature, token, top_p, top_k)
 
-
         model = genai.GenerativeModel('gemini-pro')
 
         response = model.generate_content(
@@ -45,7 +42,6 @@ def index(request):
                 temperature=temperature,
                 top_p=top_p,
                 top_k=top_k,
-
             )
         )
 
@@ -57,18 +53,8 @@ def index(request):
         string = " ".join(all_mesages)
 
         # Kullanıcı mesajını ekle
-        ChatMessage.objects.create(
-            conversation=conversation,
-            message=message,
-            sender='user'
-        )
-
-        # Chatbot cevabını ekle
-        ChatMessage.objects.create(
-            conversation=conversation,
-            message=string,
-            sender='bot'
-        )
+        chat = ChatMessage(conversation=conversation,message=message, response=string)
+        chat.save()
 
 
 
@@ -78,7 +64,26 @@ def index(request):
         conversations = Conversation.objects.all()
 
         # Son konuşmaları al
-        chats = ChatMessage.objects.filter(conversation__in=conversations).order_by('-timestamp')
+        chats = ChatMessage.objects.filter(conversation__in=conversations).order_by('timestamp')
 
         context = {'chats': chats, 'name': name}
         return render(request, 'index.html', context)
+
+
+
+active_conversation = None  # Global değişken
+
+
+def new_conversation(request):
+    # Yeni bir Conversation oluştur
+    conversation = Conversation.objects.create(active=True)
+    # Burada conversation.id değerini kullanabilirsiniz
+    conversation_id = conversation.id
+    print("Aktif konuşmanın ID'si:", conversation_id)
+
+    return redirect('index')
+
+
+def get_active_conversation(conversations):
+    active_conversation = conversations.filter(active=True).first()
+    return active_conversation

@@ -5,7 +5,7 @@ from .models import ChatMessage, genaiSetting, Conversation
 
 
 class ConversationAdmin(admin.ModelAdmin):
-    list_display = ('id','start_date',)
+    list_display = ('id','start_date','active')
     list_filter = ('start_date',)
     search_fields = ('start_date',)
 
