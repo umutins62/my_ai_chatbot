@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8453bc82-9de1-462c-ae3d-2df42de92b55" name="Changes" comment="feat:edit chat page-8" />
+    <list default="true" id="8453bc82-9de1-462c-ae3d-2df42de92b55" name="Changes" comment="feat:edit chat page-9">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_chat_bot/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/my_chat_bot/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -112,7 +117,7 @@
       <workItem from="1703250515027" duration="10778000" />
       <workItem from="1703325579549" duration="6780000" />
       <workItem from="1703344203494" duration="8354000" />
-      <workItem from="1703402277584" duration="4865000" />
+      <workItem from="1703402277584" duration="8648000" />
     </task>
     <task id="LOCAL-00001" summary="feat:First Commit">
       <option name="closed" value="true" />
@@ -210,7 +215,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703414414716</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="feat:edit chat page-9">
+      <option name="closed" value="true" />
+      <created>1703414592916</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1703414592916</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -240,6 +253,7 @@
     <MESSAGE value="feat:edit chat page-6" />
     <MESSAGE value="feat:edit chat page-7" />
     <MESSAGE value="feat:edit chat page-8" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat:edit chat page-8" />
+    <MESSAGE value="feat:edit chat page-9" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:edit chat page-9" />
   </component>
 </project>

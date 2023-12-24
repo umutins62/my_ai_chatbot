@@ -1,7 +1,53 @@
 body {
+
+    font-family: "Courier New", Courier, monospace;
     margin: 0;
     padding: 0;
+    display: flex;
+}
 
+#sidebar {
+    font-family: "Courier New", Courier, monospace;
+    width: 250px;
+    height: 100vh;
+    color: black;
+    padding: 20px;
+    border-left-color: black;
+    background-color: antiquewhite;
+}
+
+
+ul li {
+    display: inline-block;
+    margin-right: 15px;
+    color: white;
+}
+
+ul li a {
+    color: black;
+    text-decoration: none;
+}
+
+ul li a:hover {
+    color: #007bff; /* Yazı rengini istediğiniz renge ayarlayın */
+
+}
+
+.profile-img {
+    border-radius: 50%;
+    border: 1px solid #fff;
+}
+
+.dropdown-toggle {
+    background: none;
+    border: none;
+
+}
+
+.dropdown-menu a:hover {
+    color: #007bff; /* Yazı rengini istediğiniz renge ayarlayın */
+
+    background-color: transparent;
 }
 
 .chat-container {

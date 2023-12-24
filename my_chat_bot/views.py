@@ -1,6 +1,6 @@
 import environ
 from django.http import JsonResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .utils import initials_image
 import google.generativeai as genai
 from .models import ChatMessage
@@ -38,12 +38,11 @@ def index(request):
 
         chats = ChatMessage.objects.all()
 
-        context = {
-            "name": name,
-            "chats": chats
-        }
-        return render(request, 'index.html', context)
+
+        return redirect('index')
 
     else:
         chats = ChatMessage.objects.all()
+
+
         return render(request, 'index.html', {'chats': chats, "name": name})
