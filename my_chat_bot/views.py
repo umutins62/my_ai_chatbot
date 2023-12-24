@@ -29,7 +29,11 @@ def index(request):
             print(chunk.text)
             all_mesages.append(chunk.text)
 
-        chat = ChatMessage(message=message, response=all_mesages)
+
+
+        string = " ".join(all_mesages)
+
+        chat = ChatMessage(message=message, response=string)
         chat.save()
 
         chats = ChatMessage.objects.all()
