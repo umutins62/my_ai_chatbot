@@ -59,8 +59,9 @@ ul li a:hover {
     flex-direction: column;
     width: 80%; /* Genişlik 100% olsun */
     height: 100vh;
-    margin-left: 20%;
+    margin-left: 30%;
     margin-bottom: 20%;
+    margin-right: 10%;
 
 }
 
@@ -78,7 +79,7 @@ ul li a:hover {
     padding: 10px;
     position: fixed;
     bottom: 0; /* Sayfanın altında sabit tut */
-    width: 80%; /* Genişlik 100% olsun */
+    width: 65%; /* Genişlik 100% olsun */
     background-color: white; /* Input kısmının arkaplan rengi */
 
 }

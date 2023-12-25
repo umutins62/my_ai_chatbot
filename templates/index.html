@@ -87,7 +87,7 @@
 
 
 <div class="chat-container">
-   
+
     <div class="chat-header">
         {% if chats.count is None %}
             <div style="text-align: center">
@@ -97,16 +97,27 @@
         {% else %}
             {% for chat in chats %}
                 <div class="card" style="border: none;">
-                    <img src="{% get_media_prefix %}profil_picture.png" width="32" height="32" alt="user"
-                         style="border-radius: 50%">
-                    <p style="text-align: justify;margin-top: 10px;">
-                        <b>Sen:</b> {{ chat.message }} <br/>
+
+
+                    <div style="display: flex;justify-content: left;;align-items: center">
+                        <img src="{% get_media_prefix %}profil_picture.png" width="32" height="32" alt="user"
+                             style="border-radius: 50%;margin-right: 10px">
+                        <b>Sen:</b>
+                    </div>
+                    <p style="text-align: justify;margin-left: 45px">
+                        {{ chat.message }} <br/>
                     </p>
+
+
                 </div>
                 <div class="card" style="margin-top: 10px;border: none">
-                    <img src="{% get_media_prefix %}chat.png" width="36" height="36" alt="bot">
-                    <p style="text-align: justify">
-                        <b>Chat Bot</b> {{ chat.response }} <br/><br/>
+                    <div style="display: flex;justify-content: left;;align-items: center">
+                        <img src="{% get_media_prefix %}chat.png" width="36" height="36" alt="bot" style=";margin-right: 10px">
+                        <b>Chat Bot</b>
+                    </div>
+
+                    <p style="text-align: justify;margin-left: 45px">
+                        {{ chat.response }} <br/><br/>
                     </p>
                 </div>
             {% endfor %}
