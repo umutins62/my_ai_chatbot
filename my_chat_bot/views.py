@@ -6,13 +6,20 @@ import google.generativeai as genai
 from .models import ChatMessage, genaiSetting, Conversation
 
 
-# Create your views here.
+
+
 
 def index(request):
     name = "Umut ÇELİK"
     initials_image(name)
+
+    # Aktif olan Conversation'ı bul
     conversation = get_active_conversation(Conversation.objects.all())
 
+    # Aktif sohbetin mesajlarını al
+    chats = ChatMessage.objects.filter(conversation=conversation).order_by('timestamp') if conversation else []
+
+    sohbetler = Conversation.objects.all()
 
     if request.method == 'POST':
         message = request.POST['message']
@@ -53,31 +60,31 @@ def index(request):
         string = " ".join(all_mesages)
 
         # Kullanıcı mesajını ekle
-        chat = ChatMessage(conversation=conversation,message=message, response=string)
+        chat = ChatMessage(conversation=conversation, message=message, response=string)
         chat.save()
-
-
 
         return redirect('index')
 
     else:
-        conversations = Conversation.objects.all()
+        context = {'chats': chats, 'name': name, 'sohbetler': sohbetler}
 
-        # Son konuşmaları al
-        chats = ChatMessage.objects.filter(conversation__in=conversations).order_by('timestamp')
-
-        context = {'chats': chats, 'name': name}
         return render(request, 'index.html', context)
-
 
 
 active_conversation = None  # Global değişken
 
 
 def new_conversation(request):
+    # Aktif olan Conversation'ı bul
+    active_conversation = Conversation.objects.get(active=True)  # Varsayılan olarak ilk aktif Conversation'ı alır, gerekirse sıralamayı belirtin
+
+    # Eğer aktif bir Conversation varsa, deaktive et
+    if active_conversation:
+        active_conversation.active = False
+        active_conversation.save()
+
     # Yeni bir Conversation oluştur
     conversation = Conversation.objects.create(active=True)
-    # Burada conversation.id değerini kullanabilirsiniz
     conversation_id = conversation.id
     print("Aktif konuşmanın ID'si:", conversation_id)
 
@@ -87,3 +94,22 @@ def new_conversation(request):
 def get_active_conversation(conversations):
     active_conversation = conversations.filter(active=True).first()
     return active_conversation
+
+
+def activate_conversation(request, conversation_id):
+    try:
+        # Seçilen Conversation'ı bul
+        selected_conversation = Conversation.objects.get(id=conversation_id)
+
+        # Diğer tüm Conversation'ları deaktive et
+        Conversation.objects.exclude(id=conversation_id).update(active=False)
+
+        # Seçilen Conversation'ı aktive et
+        selected_conversation.active = True
+        selected_conversation.save()
+
+    except Conversation.DoesNotExist:
+        # Eğer seçilen Conversation bulunamazsa, hata işleme yapabilirsiniz
+        pass
+
+    return redirect('index')
