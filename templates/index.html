@@ -32,15 +32,24 @@
         <h5 style="margin-top: 50px;color: gray;font-size: 15px"><i class="bi bi-clock-history"
                                                                     style="opacity: 50%"></i> Sohbetlerim</h5>
 
+
+
+
         {% for chat in sohbetler %}
             {% with first_message=chat.chatmessage_set.first %}
                 {% if first_message %}
                     <a href="{% url 'activate_conversation' chat.id %}"
                        style="cursor: pointer;text-decoration: none;color: black;">
-                       <p style="margin-bottom: 0 ;margin-left: 20px;text-transform: capitalize;">{{ first_message.message }}</p> </a>
+                        <p style="margin-bottom: 0 ;margin-left: 20px;text-transform: capitalize;">{{ first_message.message }}</p>
+                    </a>
+                {% else %}
+                    <a href="{% url 'activate_conversation' chat.id %}"
+                       style="cursor: pointer;text-decoration: none;color: black;">
+                        <p style="margin-bottom: 0 ;margin-left: 20px;text-transform: capitalize;">New</p></a>
                 {% endif %}
             {% endwith %}
         {% endfor %}
+
 
     </section>
 
@@ -55,9 +64,7 @@
             </a>
 
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="background-color: antiquewhite;">
-                <li><a class="dropdown-item" href="#"><i class="bi bi-person-vcard"></i> Profil</a></li>
-                <li><a class="dropdown-item" href="#"><i class="bi bi-gear"></i> Ayarlar</a></li>
-                <li><a class="dropdown-item" href="#"><i class="bi bi-trash"></i> Sohbeti Temizle</a></li>
+                <li><a class="dropdown-item" href="#"  id="openModalLink"><i class="bi bi-gear"></i> Ayarlar</a></li>
                 <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-right"></i> Çıkış</a></li>
             </ul>
         </div>
@@ -160,6 +167,34 @@
             // Tıklandığında yapılacak işlemler
             this.style.filter = 'brightness(0.8)'; /* Örnek: Tıklama sırasında parlaklığı azaltabilirsiniz */
         });
+
+
     </script>
+
+<script>
+    // Sayfa yüklendikten sonra çalışacak kod
+    document.addEventListener('DOMContentLoaded', function () {
+        // Linki bul
+        var openModalLink = document.getElementById('openModalLink');
+
+        // Link'e tıklandığında modalı aç
+        openModalLink.addEventListener('click', function (event) {
+            event.preventDefault(); // Sayfa yenilenmesini önlemek için
+            var myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
+            myModal.show();
+        });
+    });
+</script>
+
+
+
+
+
+
 </body>
 </html>
+
+
+
+
+{% include 'modal.html' %}
