@@ -6,6 +6,9 @@ class Conversation(models.Model):
     start_date = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     active = models.BooleanField(default=False)
 
+    def get_message_count(self):
+        return self.chatmessage_set.count()
+
 
 
 class ChatMessage(models.Model):
