@@ -17,7 +17,7 @@
 
 
 <div id="sidebar">
-   
+
     <a href="http://localhost:8000/" style="text-decoration: none;cursor: pointer;color: black;">
         <h4 style="margin-top: 20px;padding-bottom: 5px;justify-content: center;"><i class="bi bi-robot"></i> Chat
             Bot
@@ -36,43 +36,104 @@
         {% for chat in sohbetler %}
             {% with first_message=chat.chatmessage_set.first %}
                 {% if first_message %}
-                    <div class="chat-item" style="margin-bottom: 10px;display: flex; justify-content: space-between;" onmouseover="this.style.backgroundColor='LightYellow';this.style.borderRadius = '10px';"
-     onmouseout="this.style.backgroundColor='antiquewhite';this.style.borderRadius = '0';" >
+                    <div class="chat-item" data-chatid="{{ chat.id }}"
+                         style="margin-bottom: 10px;display: flex; justify-content: space-between;"
+                         onmouseover="toggleBackground(this, true)"
+                         onmouseout="toggleBackground(this, false)">
                         <a href="{% url 'activate_conversation' chat.id %}"
                            style="cursor: pointer; text-decoration: none; color: black;">
                             <p style="margin-bottom: 0; margin-left: 20px; text-transform: capitalize;">
                                 <i class="bi bi-caret-right"></i> {{ first_message.message }}</p>
                         </a>
                         <div class="menu" style="float: right; cursor: pointer; margin-right: 10px;">
-                            <i class="bi bi-three-dots-vertical" style="opacity: 60%;"></i>
+                            <i class="bi bi-three-dots" style="opacity: 60%;"
+                               onclick="toggleMenu('{{ chat.id }}')"></i>
+                            <i class="bi bi-x" style="display: none; cursor: pointer;"
+                               onclick="cancelDelete('{{ chat.id }}')"></i>
+                            <i class="bi bi-check" style="display: none; cursor: pointer;"
+                               onclick="confirmDelete('{{ chat.id }}')"></i>
                             <div class="menu-content" style="display: none;">
-                                <a href="#">Delete</a>
                                 <!-- Diğer işlemleri buraya ekle -->
                             </div>
                         </div>
                     </div>
                 {% else %}
-                    <div class="chat-item" style="margin-bottom: 10px;display: flex; justify-content: space-between;" onmouseover="this.style.backgroundColor='LightYellow';this.style.borderRadius = '10px';"
-     onmouseout="this.style.backgroundColor='antiquewhite';this.style.borderRadius = '0';">
+                    <div class="chat-item" data-chatid="{{ chat.id }}"
+                         style="margin-bottom: 10px;display: flex; justify-content: space-between;"
+                         onmouseover="toggleBackground(this, true)"
+                         onmouseout="toggleBackground(this, false)">
                         <a href="{% url 'activate_conversation' chat.id %}"
                            style="cursor: pointer; text-decoration: none; color: black;">
                             <p style="margin-bottom: 0; margin-left: 20px; text-transform: capitalize;"><i
                                     class="bi bi-caret-right"></i> New</p>
                         </a>
-
                         <div class="menu" style="float: right; cursor: pointer; margin-right: 10px;">
-                            <i class="bi bi-three-dots-vertical" style="opacity: 60%;"></i>
+                            <i class="bi bi-three-dots" style="opacity: 60%;"
+                               onclick="toggleMenu('{{ chat.id }}')"></i>
+                            <i class="bi bi-x" style="display: none; cursor: pointer;"
+                               onclick="cancelDelete('{{ chat.id }}')"></i>
+                            <i class="bi bi-check" style="display: none; cursor: pointer;"
+                               onclick="confirmDelete('{{ chat.id }}')"></i>
                             <div class="menu-content" style="display: none;">
-                                <a href="#">Delete</a>
                                 <!-- Diğer işlemleri buraya ekle -->
                             </div>
                         </div>
                     </div>
-
-
                 {% endif %}
             {% endwith %}
         {% endfor %}
+
+        <script>
+            function toggleBackground(element, isMouseOver) {
+                if (isMouseOver) {
+                    element.style.backgroundColor = 'LightYellow';
+                    element.style.borderRadius = '10px';
+                } else {
+                    element.style.backgroundColor = 'antiquewhite';
+                    element.style.borderRadius = '0';
+                }
+            }
+
+            function toggleMenu(chatId) {
+                var menuIcon = document.querySelector(`[data-chatid="${chatId}"] .bi-three-dots`);
+                var xIcon = document.querySelector(`[data-chatid="${chatId}"] .bi-x`);
+                var checkIcon = document.querySelector(`[data-chatid="${chatId}"] .bi-check`);
+                var menuOptions = document.querySelector(`[data-chatid="${chatId}"] .menu-content`);
+
+                if (menuIcon.style.display !== "none") {
+                    menuIcon.style.display = "none";
+                    xIcon.style.display = "inline";
+                    checkIcon.style.display = "inline";
+                    menuOptions.style.display = "block";
+                } else {
+                    menuIcon.style.display = "inline";
+                    xIcon.style.display = "none";
+                    checkIcon.style.display = "none";
+                    menuOptions.style.display = "none";
+                }
+            }
+
+            function cancelDelete(chatId) {
+                var menuIcon = document.querySelector(`[data-chatid="${chatId}"] .bi-three-dots`);
+                var xIcon = document.querySelector(`[data-chatid="${chatId}"] .bi-x`);
+                var checkIcon = document.querySelector(`[data-chatid="${chatId}"] .bi-check`);
+                var menuOptions = document.querySelector(`[data-chatid="${chatId}"] .menu-content`);
+
+                console.log("Delete cancelled!");
+                toggleMenu(chatId);
+            }
+
+            function confirmDelete(chatId) {
+                var menuIcon = document.querySelector(`[data-chatid="${chatId}"] .bi-three-dots`);
+                var xIcon = document.querySelector(`[data-chatid="${chatId}"] .bi-x`);
+                var checkIcon = document.querySelector(`[data-chatid="${chatId}"] .bi-check`);
+                var menuOptions = document.querySelector(`[data-chatid="${chatId}"] .menu-content`);
+
+                console.log("Item deleted!");
+                location.reload();
+            }
+        </script>
+
     </section>
 
 
@@ -87,8 +148,14 @@
             </a>
 
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="background-color: antiquewhite;">
-                <li><a class="dropdown-item" href="#" id="openModalLink"><i class="bi bi-gear"></i> Ayarlar</a></li>
-                <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-right"></i> Çıkış</a></li>
+                <li><a class="dropdown-item" href="#" id="openModalLink" style="color: black"
+                       onmouseover="this.style.backgroundColor='LightYellow';this.style.borderRadius = '10px';"
+                       onmouseout="this.style.backgroundColor='antiquewhite';this.style.borderRadius = '0';"><i
+                        class="bi bi-gear"></i> Ayarlar</a></li>
+                <li><a class="dropdown-item" style="color: black" href="#"
+                       onmouseover="this.style.backgroundColor='LightYellow';this.style.borderRadius = '10px';"
+                       onmouseout="this.style.backgroundColor='antiquewhite';this.style.borderRadius = '0';"><i
+                        class="bi bi-box-arrow-right"></i> Çıkış</a></li>
             </ul>
         </div>
 
@@ -203,24 +270,6 @@
                 event.preventDefault(); // Sayfa yenilenmesini önlemek için
                 var myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
                 myModal.show();
-            });
-        });
-    </script>
-
-    <script>
-        // JavaScript ile üç noktalı menünün gösterilip gizlenmesi
-        document.querySelectorAll('.menu').forEach(function (menu) {
-            menu.addEventListener('click', function () {
-                this.querySelector('.menu-content').classList.toggle('show');
-            });
-        });
-
-        // Kullanıcının menü dışındaki yere tıkladığında menünün gizlenmesi
-        window.addEventListener('click', function (event) {
-            document.querySelectorAll('.menu').forEach(function (menu) {
-                if (!menu.contains(event.target)) {
-                    menu.querySelector('.menu-content').classList.remove('show');
-                }
             });
         });
     </script>

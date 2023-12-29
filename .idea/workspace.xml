@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8453bc82-9de1-462c-ae3d-2df42de92b55" name="Changes" comment="feat:Edit modal form edit-1">
+    <list default="true" id="8453bc82-9de1-462c-ae3d-2df42de92b55" name="Changes" comment="feat:Edit side bar chat list edit-2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my_chat_bot/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/my_chat_bot/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/settings.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +138,7 @@
       <workItem from="1703747582060" duration="139000" />
       <workItem from="1703751604102" duration="2056000" />
       <workItem from="1703827520568" duration="3566000" />
-      <workItem from="1703861428091" duration="1366000" />
+      <workItem from="1703861428091" duration="5344000" />
     </task>
     <task id="LOCAL-00001" summary="feat:First Commit">
       <option name="closed" value="true" />
@@ -318,7 +316,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703753650937</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="feat:Edit side bar chat list edit-2">
+      <option name="closed" value="true" />
+      <created>1703863082578</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1703863082578</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -358,6 +364,7 @@
     <MESSAGE value="feat:Edit modul end conversation chatbot-3.1" />
     <MESSAGE value="feat:Edit modul end conversation chatbot-4" />
     <MESSAGE value="feat:Edit modal form edit-1" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat:Edit modal form edit-1" />
+    <MESSAGE value="feat:Edit side bar chat list edit-2" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:Edit side bar chat list edit-2" />
   </component>
 </project>

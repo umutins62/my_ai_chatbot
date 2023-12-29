@@ -78,7 +78,7 @@ ul li a {
 }
 
 ul li a:hover {
-    color: #007bff; /* Yazı rengini istediğiniz renge ayarlayın */
+    color: black; /* Yazı rengini istediğiniz renge ayarlayın */
 }
 
 .profile-img {
@@ -92,7 +92,7 @@ ul li a:hover {
 }
 
 .dropdown-menu a:hover {
-    color: #007bff; /* Yazı rengini istediğiniz renge ayarlayın */
+    color: black; /* Yazı rengini istediğiniz renge ayarlayın */
     background-color: transparent;
 }
 
@@ -126,7 +126,7 @@ button {
     text-decoration: none;
     transition: color 0.3s;
 }
-.chat-item a:hover {
-    background-color: white; /* İstediğin rengi buraya ekleyebilirsin */
+.menu .menu-content i {
+  cursor: pointer;
+  margin-left: 10px;
 }
-
