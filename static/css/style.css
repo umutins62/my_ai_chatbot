@@ -126,20 +126,7 @@ button {
     text-decoration: none;
     transition: color 0.3s;
 }
-
-
-
-/*.nav-link {*/
-/*  background-color: antiquewhite;*/
-/*  transition: background-color 0.3s;*/
-/*}*/
-
-/*.nav-link:hover,*/
-/*.nav-link:focus {*/
-/*  background-color: antiquewhite; !* İstediğiniz rengi yazın *!*/
-/*}*/
-
-/*.nav-link.active {*/
-/*  background-color: antiquewhite; !* İstediğiniz rengi yazın *!*/
-/*}*/
+.chat-item a:hover {
+    background-color: white; /* İstediğin rengi buraya ekleyebilirsin */
+}
 
