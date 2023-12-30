@@ -48,8 +48,10 @@
                         <div class="menu" style="float: right; cursor: pointer; margin-right: 10px;">
                             <i class="bi bi-three-dots" style="opacity: 60%;"
                                onclick="toggleMenu('{{ chat.id }}')"></i>
-                            <i class="bi bi-x" style="display: none; cursor: pointer;"
-                               onclick="cancelDelete('{{ chat.id }}')"></i>
+                            <a href="{% url 'delete_conversation' chat.id %}" style="text-decoration: none">
+                                <i class="bi bi-trash3" style="display: none; cursor: pointer;width: 16px;height: 16px"></i>
+                            </a>
+
                             <i class="bi bi-check" style="display: none; cursor: pointer;"
                                onclick="confirmDelete('{{ chat.id }}')"></i>
                             <div class="menu-content" style="display: none;">
@@ -70,8 +72,9 @@
                         <div class="menu" style="float: right; cursor: pointer; margin-right: 10px;">
                             <i class="bi bi-three-dots" style="opacity: 60%;"
                                onclick="toggleMenu('{{ chat.id }}')"></i>
-                            <i class="bi bi-x" style="display: none; cursor: pointer;"
-                               onclick="cancelDelete('{{ chat.id }}')"></i>
+                            <a href="{% url 'delete_conversation' chat.id %}" style="text-decoration: none">
+                                <i class="bi bi-trash3" style="display: none; cursor: pointer;width: 16px;height: 16px"></i>
+                            </a>
                             <i class="bi bi-check" style="display: none; cursor: pointer;"
                                onclick="confirmDelete('{{ chat.id }}')"></i>
                             <div class="menu-content" style="display: none;">
@@ -96,7 +99,7 @@
 
             function toggleMenu(chatId) {
                 var menuIcon = document.querySelector(`[data-chatid="${chatId}"] .bi-three-dots`);
-                var xIcon = document.querySelector(`[data-chatid="${chatId}"] .bi-x`);
+                var xIcon = document.querySelector(`[data-chatid="${chatId}"] .bi-trash3`);
                 var checkIcon = document.querySelector(`[data-chatid="${chatId}"] .bi-check`);
                 var menuOptions = document.querySelector(`[data-chatid="${chatId}"] .menu-content`);
 
@@ -113,19 +116,11 @@
                 }
             }
 
-            function cancelDelete(chatId) {
-                var menuIcon = document.querySelector(`[data-chatid="${chatId}"] .bi-three-dots`);
-                var xIcon = document.querySelector(`[data-chatid="${chatId}"] .bi-x`);
-                var checkIcon = document.querySelector(`[data-chatid="${chatId}"] .bi-check`);
-                var menuOptions = document.querySelector(`[data-chatid="${chatId}"] .menu-content`);
-
-                console.log("Delete cancelled!");
-                toggleMenu(chatId);
-            }
+    
 
             function confirmDelete(chatId) {
                 var menuIcon = document.querySelector(`[data-chatid="${chatId}"] .bi-three-dots`);
-                var xIcon = document.querySelector(`[data-chatid="${chatId}"] .bi-x`);
+                var xIcon = document.querySelector(`[data-chatid="${chatId}"] .bi-trash3`);
                 var checkIcon = document.querySelector(`[data-chatid="${chatId}"] .bi-check`);
                 var menuOptions = document.querySelector(`[data-chatid="${chatId}"] .menu-content`);
 
@@ -158,24 +153,7 @@
                         class="bi bi-box-arrow-right"></i> Çıkış</a></li>
             </ul>
         </div>
-
-        <div class="profile-icons" style="text-align: left;margin-left: 20px">
-
-            <p style="text-align: left;font-size: 14px;color: lightslategray">© 2023 Umut CELIK</p>
-            <a href="https://github.com/umutins62" target="_blank" style="text-decoration: none; ">
-                <i class="bi bi-github"></i>
-            </a>
-
-            <a href="https://www.linkedin.com/in/umut-%C3%A7elik-837897169/" target="_blank"
-               style="text-decoration: none;margin-left: 30px ">
-                <i class="bi bi-linkedin"></i>
-            </a>
-
-            <a href="https://umutins62.pythonanywhere.com/" target="_blank"
-               style="text-decoration: none;margin-left: 30px ">
-                <i class="bi bi-browser-edge"></i>
-            </a>
-        </div>
+        
 
     </section>
 

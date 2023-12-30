@@ -1,15 +1,19 @@
 import environ
-from django.http import JsonResponse
-from django.shortcuts import render, redirect
+from django.http import JsonResponse, request
+from django.shortcuts import render, redirect, get_object_or_404
 from .utils import initials_image
 import google.generativeai as genai
 from .models import ChatMessage, genaiSetting, Conversation
+from .forms import ModelParametersForm
 
 
 def index(request):
     name = "Umut ÇELİK"
     initials_image(name)
 
+    form = ModelParametersForm(request.POST or None)
+
+    model_set = genaiSetting.objects.all()
 
     conversation = get_active_conversation(Conversation.objects.all())
 
@@ -70,7 +74,8 @@ def index(request):
         return redirect('index')
 
     else:
-        context = {'chats': chats, 'name': name, 'sohbetler': sohbetler, 'message_count': message_count}
+        context = {'chats': chats, 'name': name, 'sohbetler': sohbetler, 'message_count': message_count, 'form': form,
+                   'model_set': model_set}
 
         return render(request, 'index.html', context)
 
@@ -120,4 +125,21 @@ def activate_conversation(request, conversation_id):
     return redirect('index')
 
 
+def delete_conversation(request, conversation_id):
+    conversation = get_object_or_404(Conversation, id=conversation_id)
+
+    # Diğer kontrolleri ve yetkilendirmeleri buraya ekleyebilirsin.
+
+    # Konuşmayı sil
+    conversation.delete()
+
+    return redirect('index')  # Silindikten sonra ana sayfaya yönlendir
+
+
+def update_parameters(request):
+    if request.method == 'POST':
+        form = ModelParametersForm(request.POST)
+
+        if form.is_valid():
+            form.save()
 

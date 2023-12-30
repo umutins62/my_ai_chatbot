@@ -126,7 +126,15 @@ button {
     text-decoration: none;
     transition: color 0.3s;
 }
+
 .menu .menu-content i {
-  cursor: pointer;
-  margin-left: 10px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.tooltip-inner {
+    font-family: 'Roboto', sans-serif;
+    background-color: antiquewhite;
+    color: black;
+    border-radius: 10px;
 }

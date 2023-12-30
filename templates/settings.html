@@ -2,7 +2,7 @@
 
     <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
         <a class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" href="#v-pills-home" role="tab"
-           aria-controls="v-pills-home" aria-selected="true" style="color: black">Ayarlar</a>
+           aria-controls="v-pills-home" aria-selected="true" style="color: black">Model</a>
         <a class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" href="#v-pills-profile" role="tab"
            aria-controls="v-pills-profile" aria-selected="false" style="color: black">Profile</a>
         <a class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" href="#v-pills-messages" role="tab"
@@ -12,13 +12,109 @@
     <div class="tab-content" id="v-pills-tabContent">
         <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
 
-            <div class="card">
+            <div class="card" style="width: 620px">
                 <div class="card-header" style="background-color: antiquewhite">
-                    <h5 class="card-title">Card title</h5>
+                    <h5 class="card-title">Model Ayarları</h5>
                 </div>
                 <div class="card-body">
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-                        voluptatum.</p>
+
+
+                    <form>
+
+                        <div class="row">
+                            {% csrf_token %}
+                            {% for i in model_set %}
+
+                                <div class="col-4">
+                                    <label for="temperture">Temperture:
+                                        <i class="bi bi-info-circle"
+                                           title="Temperature özelliği, modelin ürettiği çıktının özgünlük düzeyini kontrol eder. Temperature değeri 1'den küçükse, model daha özgün çıktılar üretme eğilimindedir. Temperature değeri 1'den büyükse, model daha az özgün, ancak daha doğru çıktılar üretme eğilimindedir."
+                                           data-bs-toggle="tooltip"
+                                           data-bs-placement="right"></i>
+
+                                    </label>
+                                </div>
+
+                                <div class="col-4">
+                                    {{ form.temperture }}
+                                </div>
+
+                                <div class="col-4">
+                                    <label id="temperture">{{ i.temperture }}</label>
+                                </div>
+
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col-4">
+                                        <label for="max_length">Token: <i class="bi bi-info-circle"
+                                                                          title="Max_length özelliği, modelin üretebileceği çıktının maksimum uzunluğunu belirtir."
+                                                                          data-bs-toggle="tooltip"
+                                                                          data-bs-placement="right"
+
+
+                                        ></i></label>
+                                    </div>
+
+                                    <div class="col-4">
+                                        {{ form.max_length }}
+                                    </div>
+
+                                    <div class="col-4">
+                                        <label id="max_length">{{ i.max_length }}</label>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col-4">
+                                        <label for="top_p">Top P: <i class="bi bi-info-circle"
+                                                                     title="Top_p özelliği, modelin üreteceği çıktının olasılık dağılımının en üst %p'sini dikkate almasını sağlar. Top_p değeri 1'e yakınsa, model daha özgün çıktılar üretme eğilimindedir. Top_p değeri 0'a yakınsa, model daha doğru çıktılar üretme eğilimindedir."
+                                                                     data-bs-toggle="tooltip"
+                                                                     data-bs-placement="right"
+
+
+                                        ></i></label>
+                                    </div>
+
+                                    <div class="col-4">
+                                        {{ form.top_p }}
+                                    </div>
+
+                                    <div class="col-4">
+                                        <label id="top_p">{{ i.top_p }}</label>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+
+                                <div class="col-4">
+                                    <label for="top_k">Top K: <i class="bi bi-info-circle"
+                                                                 title="Top_k özelliği, modelin üreteceği çıktının olasılık dağılımının en üst k elemanını dikkate almasını sağlar. Top_k değeri 0'a yakınsa, model daha özgün çıktılar üretme eğilimindedir. Top_k değeri büyükse, model daha doğru çıktılar üretme eğilimindedir."
+                                                                 data-bs-toggle="tooltip"
+                                                                 data-bs-placement="right"
+
+
+                                    ></i></label>
+                                </div>
+
+                                <div class="col-4">
+                                    {{ form.top_k }}
+                                </div>
+
+                                <div class="col-4">
+                                    <label id="top_k">{{ i.top_k }}</label>
+                                </div>
+                            {% endfor %}
+
+                            </div>
+
+
+                    </form>
+
                 </div>
             </div>
 
@@ -40,11 +136,36 @@
 
             <div class="card">
                 <div class="card-header" style="background-color: antiquewhite">
-                    <h5 class="card-title" >Card title</h5>
+                    <h5 class="card-title">Hakkımda</h5>
                 </div>
                 <div class="card-body">
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-                        voluptatum.</p>
+                    <p style="text-align: justify">
+                        Yazılım mühendisliğine hevesli, Python, Django ve C# konularında deneyime sahip bir adayım. Web
+                        uygulamaları ve programlama sistemleri geliştirme konusunda yetenekliyim. İnşaat mühendisliği
+                        geçmişim, inşaat, tasarım ve proje yönetimi konularında sağlam bir temel sunuyor. Mükemmel
+                        problem çözme becerilerine ve detaylara dikkat etme yeteneğine sahibim. Teknik yeteneklerimi ve
+                        mühendislik bilgimi kullanarak yenilikçi çözümler oluşturmayı hedefliyorum. Kodu kullanarak
+                        öğrenmek ve olumlu bir etki yaratmak konusunda tutkulu biriyim.
+                    </p>
+
+                    <div class="profile-icons" style="text-align: left;margin-left: 20px">
+
+                        <p style="text-align: left;font-size: 14px;color: lightslategray">© 2023 Umut CELIK</p>
+                        <a href="https://github.com/umutins62" target="_blank" style="text-decoration: none; ">
+                            <i class="bi bi-github"></i>
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/umut-%C3%A7elik-837897169/" target="_blank"
+                           style="text-decoration: none;margin-left: 30px ">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+
+                        <a href="https://umutins62.pythonanywhere.com/" target="_blank"
+                           style="text-decoration: none;margin-left: 30px ">
+                            <i class="bi bi-browser-edge"></i>
+                        </a>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -86,4 +207,50 @@
         });
 
     });
+</script>
+
+<script>
+
+    // Formdaki tüm range inputlarını seç
+    const ranges = document.querySelectorAll('input[type="range"]');
+
+    // Her bir range için input event'ini yakala
+    ranges.forEach(range => {
+
+        // Input id'sinden label id'sini üret
+        const labelId = range.id.split('id_')[1];
+
+        // İlgili label'ı seç
+        const label = document.getElementById(labelId);
+
+        // Input değişimlerini yakala ve label'ı güncelle
+        range.addEventListener('input', event => {
+            label.innerText = event.target.value;
+        });
+
+    });
+</script>
+
+<script>
+
+    // Input değişimleri
+    document.querySelectorAll('input').forEach(input => {
+        input.addEventListener('input', event => {
+            // İşlemler
+        })
+    })
+
+    fetch('/update-parameters/', {
+        method: 'POST',
+        body: inputData
+    })
+
+
+</script>
+
+<script>
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
 </script>
