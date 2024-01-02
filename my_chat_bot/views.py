@@ -11,10 +11,7 @@ def index(request):
     name = "Umut ÇELİK"
     initials_image(name)
 
-    form = ModelParametersForm(request.POST or None)
-
     model_set = genaiSetting.objects.all()
-
     conversation = get_active_conversation(Conversation.objects.all())
 
     if not conversation:
@@ -30,7 +27,9 @@ def index(request):
     sohbetler = Conversation.objects.all()
 
     if request.method == 'POST':
+        # message = request.POST.get('message', False)
         message = request.POST['message']
+        print(request.POST)
 
         env = environ.Env(DEBUG=(bool, True), )
         environ.Env.read_env()
@@ -45,7 +44,7 @@ def index(request):
         top_k = my_instance.top_k if my_instance else None
 
         print(temperature, token, top_p, top_k)
-
+        form1 = ModelParametersForm()
         model = genai.GenerativeModel('gemini-pro')
 
         response = model.generate_content(
@@ -62,7 +61,6 @@ def index(request):
 
         all_mesages = []
         for chunk in response:
-            print(chunk.text)
             all_mesages.append(chunk.text)
 
         string = " ".join(all_mesages)
@@ -74,8 +72,9 @@ def index(request):
         return redirect('index')
 
     else:
-        context = {'chats': chats, 'name': name, 'sohbetler': sohbetler, 'message_count': message_count, 'form': form,
-                   'model_set': model_set}
+        form1 = ModelParametersForm(request.POST)
+        context = {'chats': chats, 'name': name, 'sohbetler': sohbetler, 'message_count': message_count,
+                   'model_set': model_set, 'form1': form1, }
 
         return render(request, 'index.html', context)
 
@@ -94,7 +93,7 @@ def new_conversation(request):
         active_conversation.save()
 
     # Yeni bir Conversation oluştur
-    conversation = Conversation.objects.create(active=True)
+    conversation = Conversation.objects.create(active=True).ç.ççç
     conversation_id = conversation.id
     print("Aktif konuşmanın ID'si:", conversation_id)
 
@@ -136,10 +135,20 @@ def delete_conversation(request, conversation_id):
     return redirect('index')  # Silindikten sonra ana sayfaya yönlendir
 
 
-def update_parameters(request):
+def update_model(request):
     if request.method == 'POST':
+        print(request.POST)
         form = ModelParametersForm(request.POST)
-
         if form.is_valid():
-            form.save()
+            model_instance = genaiSetting.objects.get(pk=1)
+            model_instance.temperture = form.cleaned_data['temperture']
+            model_instance.max_length = form.cleaned_data['max_length']
+            model_instance.top_p = form.cleaned_data['top_p']
+            model_instance.top_k = form.cleaned_data['top_k']
+            model_instance.save()
+            return redirect('index')
+        else:
 
+            model_instance = genaiSetting.objects.get(pk=1)
+            form = ModelParametersForm(instance=model_instance)
+            return render(request, 'index.html', {'form ': form})

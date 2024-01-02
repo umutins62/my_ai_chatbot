@@ -22,7 +22,7 @@ class ChatLogAdmin(admin.ModelAdmin):
 admin.site.register(ChatMessage, ChatLogAdmin)
 
 class genaiSettingAdmin(admin.ModelAdmin):
-  list_display = ('temperture', 'max_length', 'top_p', 'top_k')
+  list_display = ('id','temperture', 'max_length', 'top_p', 'top_k')
   list_filter = ('temperture', 'max_length', 'top_p', 'top_k')
   search_fields = ('temperture', 'max_length', 'top_p', 'top_k')
 

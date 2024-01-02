@@ -1,3 +1,5 @@
+{% load static %}
+
 <div class="d-flex">
 
     <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
@@ -11,120 +13,80 @@
 
     <div class="tab-content" id="v-pills-tabContent">
         <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-
             <div class="card" style="width: 620px">
-                <div class="card-header" style="background-color: antiquewhite">
-                    <h5 class="card-title">Model Ayarları</h5>
-                </div>
                 <div class="card-body">
-
-
-                    <form>
-
+                    <form method="post"  action="{% url 'update_model' %}">
+                        {% csrf_token %}
                         <div class="row">
-                            {% csrf_token %}
                             {% for i in model_set %}
-
                                 <div class="col-4">
                                     <label for="temperture">Temperture:
                                         <i class="bi bi-info-circle"
                                            title="Temperature özelliği, modelin ürettiği çıktının özgünlük düzeyini kontrol eder. Temperature değeri 1'den küçükse, model daha özgün çıktılar üretme eğilimindedir. Temperature değeri 1'den büyükse, model daha az özgün, ancak daha doğru çıktılar üretme eğilimindedir."
                                            data-bs-toggle="tooltip"
                                            data-bs-placement="right"></i>
-
                                     </label>
                                 </div>
-
                                 <div class="col-4">
-                                    {{ form.temperture }}
+                                    {{ form1.temperture }}
                                 </div>
-
                                 <div class="col-4">
                                     <label id="temperture">{{ i.temperture }}</label>
                                 </div>
-
                                 </div>
-
                                 <div class="row">
-
                                     <div class="col-4">
                                         <label for="max_length">Token: <i class="bi bi-info-circle"
                                                                           title="Max_length özelliği, modelin üretebileceği çıktının maksimum uzunluğunu belirtir."
                                                                           data-bs-toggle="tooltip"
                                                                           data-bs-placement="right"
-
-
                                         ></i></label>
                                     </div>
-
                                     <div class="col-4">
-                                        {{ form.max_length }}
+                                        {{ form1.max_length }}
                                     </div>
-
                                     <div class="col-4">
                                         <label id="max_length">{{ i.max_length }}</label>
                                     </div>
-
                                 </div>
-
                                 <div class="row">
-
                                     <div class="col-4">
                                         <label for="top_p">Top P: <i class="bi bi-info-circle"
                                                                      title="Top_p özelliği, modelin üreteceği çıktının olasılık dağılımının en üst %p'sini dikkate almasını sağlar. Top_p değeri 1'e yakınsa, model daha özgün çıktılar üretme eğilimindedir. Top_p değeri 0'a yakınsa, model daha doğru çıktılar üretme eğilimindedir."
                                                                      data-bs-toggle="tooltip"
                                                                      data-bs-placement="right"
-
-
                                         ></i></label>
                                     </div>
-
                                     <div class="col-4">
-                                        {{ form.top_p }}
+                                        {{ form1.top_p }}
                                     </div>
-
                                     <div class="col-4">
                                         <label id="top_p">{{ i.top_p }}</label>
                                     </div>
-
                                 </div>
-
                                 <div class="row">
-
                                 <div class="col-4">
                                     <label for="top_k">Top K: <i class="bi bi-info-circle"
                                                                  title="Top_k özelliği, modelin üreteceği çıktının olasılık dağılımının en üst k elemanını dikkate almasını sağlar. Top_k değeri 0'a yakınsa, model daha özgün çıktılar üretme eğilimindedir. Top_k değeri büyükse, model daha doğru çıktılar üretme eğilimindedir."
                                                                  data-bs-toggle="tooltip"
                                                                  data-bs-placement="right"
-
-
                                     ></i></label>
                                 </div>
-
                                 <div class="col-4">
-                                    {{ form.top_k }}
+                                    {{ form1.top_k }}
                                 </div>
-
                                 <div class="col-4">
-                                    <label id="top_k">{{ i.top_k }}</label>
+                                    <label3 id="top_k">{{ i.top_k }}</label3>
                                 </div>
                             {% endfor %}
-
                             </div>
-
-
+                        <button type="submit" class="btn btn-secondary" style="margin-top: 10px">Kaydet</button>
                     </form>
-
                 </div>
             </div>
-
         </div>
         <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-
             <div class="card">
-                <div class="card-header" style="background-color: antiquewhite">
-                    <h5 class="card-title">Card title</h5>
-                </div>
                 <div class="card-body">
                     <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
                         voluptatum.</p>
@@ -132,12 +94,8 @@
             </div>
         </div>
         <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-
-
+            
             <div class="card">
-                <div class="card-header" style="background-color: antiquewhite">
-                    <h5 class="card-title">Hakkımda</h5>
-                </div>
                 <div class="card-body">
                     <p style="text-align: justify">
                         Yazılım mühendisliğine hevesli, Python, Django ve C# konularında deneyime sahip bir adayım. Web
@@ -229,23 +187,6 @@
         });
 
     });
-</script>
-
-<script>
-
-    // Input değişimleri
-    document.querySelectorAll('input').forEach(input => {
-        input.addEventListener('input', event => {
-            // İşlemler
-        })
-    })
-
-    fetch('/update-parameters/', {
-        method: 'POST',
-        body: inputData
-    })
-
-
 </script>
 
 <script>

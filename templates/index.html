@@ -199,9 +199,8 @@
         {% endif %}
 
         <div class="chat-form">
-            <form method="post">
+            <form method="post" action="{% url 'index' %}">
                 {% csrf_token %}
-
                 <div class="input-container">
                     <input type="text" id="messageInput" name="message" placeholder="Mesajınızı yazın..."
                            style="color: black;font-size: 14px;font-family: 'Courier New', Courier, monospace">
