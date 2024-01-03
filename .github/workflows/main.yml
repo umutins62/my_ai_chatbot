@@ -1,4 +1,4 @@
-name: Update README with Screenshot
+name: Update README with Screenshots
 
 on:
   workflow_run:
@@ -13,9 +13,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Upload Screenshot
+      - name: Upload Screenshot 1
         uses: actions/upload-artifact@v2
         with:
-          name: screenshot
-          path: screenshot.png
+          name: screenshot1
+          path: path/to/screenshot1.png
 
+      - name: Upload Screenshot 2
+        uses: actions/upload-artifact@v2
+        with:
+          name: screenshot2
+          path: path/to/screenshot2.png
