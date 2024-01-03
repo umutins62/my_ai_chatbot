@@ -53,5 +53,8 @@ genai.configure(api_key=GOOGLE_API_KEY)
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![1](https://github.com/umutins62/my_ai_chatbot/assets/11753614/48af96fa-c0ce-4f01-bed2-21863b97b4bf)
+![2](https://github.com/umutins62/my_ai_chatbot/assets/11753614/41d04a03-450d-415a-93c2-1a5b4f2daaa5)
+
+
 
