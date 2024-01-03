@@ -1,6 +1,9 @@
 
 # Gemini ChatBot Project
 
+## Descriptions
+
+With the gemini chat bot application, you can make your own chatbot with the api you get from google, I made a simple example and you can make it better from where I left off.
 
 
 ## Authors
