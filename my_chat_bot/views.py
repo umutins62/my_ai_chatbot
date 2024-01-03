@@ -27,9 +27,8 @@ def index(request):
     sohbetler = Conversation.objects.all()
 
     if request.method == 'POST':
-        # message = request.POST.get('message', False)
+
         message = request.POST['message']
-        print(request.POST)
 
         env = environ.Env(DEBUG=(bool, True), )
         environ.Env.read_env()
@@ -43,7 +42,7 @@ def index(request):
         top_p = my_instance.top_p if my_instance else None
         top_k = my_instance.top_k if my_instance else None
 
-        print(temperature, token, top_p, top_k)
+
         form1 = ModelParametersForm()
         model = genai.GenerativeModel('gemini-pro')
 
@@ -137,7 +136,7 @@ def delete_conversation(request, conversation_id):
 
 def update_model(request):
     if request.method == 'POST':
-        print(request.POST)
+
         form = ModelParametersForm(request.POST)
         if form.is_valid():
             model_instance = genaiSetting.objects.get(pk=1)
