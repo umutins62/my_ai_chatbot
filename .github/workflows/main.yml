@@ -13,14 +13,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Upload Screenshot 1
+      - name: Upload Screenshots
         uses: actions/upload-artifact@v2
         with:
-          name: screenshot1
-          path: path/to/screenshot1.png
+          name: screenshots
+          path: .
 
-      - name: Upload Screenshot 2
-        uses: actions/upload-artifact@v2
-        with:
-          name: screenshot2
-          path: path/to/screenshot2.png
+      - name: Update README
+        run: |
+          echo "![Ekran Resmi 1](screenshot1.png)" >> README.md
+          echo "![Ekran Resmi 2](screenshot2.png)" >> README.md
+
