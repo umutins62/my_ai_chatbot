@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8453bc82-9de1-462c-ae3d-2df42de92b55" name="Changes" comment="feat:finished my chatbot project">
-      <change afterPath="$PROJECT_DIR$/ChatBot/chatbot.env.txt" afterDir="false" />
+    <list default="true" id="8453bc82-9de1-462c-ae3d-2df42de92b55" name="Changes" comment="feat:finished my chatbot project-edit project">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,7 +146,8 @@
       <workItem from="1704016237449" duration="3972000" />
       <workItem from="1704111284987" duration="9084000" />
       <workItem from="1704174311530" duration="7181000" />
-      <workItem from="1704257944679" duration="352000" />
+      <workItem from="1704257944679" duration="437000" />
+      <workItem from="1704258647180" duration="317000" />
     </task>
     <task id="LOCAL-00001" summary="feat:First Commit">
       <option name="closed" value="true" />
@@ -364,7 +365,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704258206285</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="feat:finished my chatbot project-edit project">
+      <option name="closed" value="true" />
+      <created>1704258367812</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1704258367812</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -383,7 +392,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat:Create gitignore file" />
     <MESSAGE value="feat:my app is alive!!!" />
     <MESSAGE value="feat:edit chat page-1" />
     <MESSAGE value="feat:edit chat page-2" />
@@ -408,6 +416,7 @@
     <MESSAGE value="feat:Edit side bar chat list edit-4" />
     <MESSAGE value="feat:fixed model setting update problem" />
     <MESSAGE value="feat:finished my chatbot project" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat:finished my chatbot project" />
+    <MESSAGE value="feat:finished my chatbot project-edit project" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:finished my chatbot project-edit project" />
   </component>
 </project>
