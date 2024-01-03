@@ -53,8 +53,9 @@ genai.configure(api_key=GOOGLE_API_KEY)
 
 ## Screenshots
 
-![Ekran Resmi 1](path/to/screenshot1.png)
-![Ekran Resmi 2](path/to/screenshot2.png)
+![Ekran Resmi 1](screenshot1.png)
+![Ekran Resmi 2](screenshot2.png)
+
 
 
 
