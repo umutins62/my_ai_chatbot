@@ -92,7 +92,7 @@ def new_conversation(request):
         active_conversation.save()
 
     # Yeni bir Conversation oluştur
-    conversation = Conversation.objects.create(active=True).ç.ççç
+    conversation = Conversation.objects.create(active=True)
     conversation_id = conversation.id
     print("Aktif konuşmanın ID'si:", conversation_id)
 
