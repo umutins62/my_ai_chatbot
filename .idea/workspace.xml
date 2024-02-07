@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8453bc82-9de1-462c-ae3d-2df42de92b55" name="Changes" comment="feat:finished my chatbot project-edit project">
+    <list default="true" id="8453bc82-9de1-462c-ae3d-2df42de92b55" name="Changes" comment="feat:finished my chatbot project-edit project-1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,37 +41,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Django Server.ChatBot.executor&quot;: &quot;Run&quot;,
-    &quot;JavaScript Debug.new.html.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/umuti/PycharmProjects/stock_app&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.github.copilot.settings.ApplicationConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Django Server.ChatBot.executor": "Run",
+    "JavaScript Debug.new.html.executor": "Run",
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "django.template.preview.state": "SHOW_EDITOR",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/umuti/PycharmProjects/myflow",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.github.copilot.settings.ApplicationConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\umuti\PycharmProjects\ChatBot\my_chat_bot" />
       <recent name="C:\Users\umuti\PycharmProjects\ChatBot\media" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\umuti\PycharmProjects\ChatBot\my_chat_bot" />
       <recent name="C:\Users\umuti\PycharmProjects\ChatBot" />
+      <recent name="C:\Users\umuti\PycharmProjects\ChatBot\my_chat_bot" />
     </key>
   </component>
   <component name="RunManager" selected="Django Server.ChatBot">
@@ -147,7 +147,15 @@
       <workItem from="1704111284987" duration="9084000" />
       <workItem from="1704174311530" duration="7181000" />
       <workItem from="1704257944679" duration="437000" />
-      <workItem from="1704258647180" duration="317000" />
+      <workItem from="1704258647180" duration="635000" />
+      <workItem from="1704259356139" duration="2000" />
+      <workItem from="1704259390585" duration="16000" />
+      <workItem from="1704259525968" duration="2000" />
+      <workItem from="1704259543693" duration="2000" />
+      <workItem from="1704259613795" duration="31000" />
+      <workItem from="1704259701618" duration="16000" />
+      <workItem from="1704260260511" duration="596000" />
+      <workItem from="1704261391229" duration="10000" />
     </task>
     <task id="LOCAL-00001" summary="feat:First Commit">
       <option name="closed" value="true" />
@@ -373,7 +381,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704258367812</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="feat:finished my chatbot project-edit project-1">
+      <option name="closed" value="true" />
+      <created>1704259083308</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1704259083308</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -392,7 +408,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat:my app is alive!!!" />
     <MESSAGE value="feat:edit chat page-1" />
     <MESSAGE value="feat:edit chat page-2" />
     <MESSAGE value="feat:edit chat page-3" />
@@ -417,6 +432,7 @@
     <MESSAGE value="feat:fixed model setting update problem" />
     <MESSAGE value="feat:finished my chatbot project" />
     <MESSAGE value="feat:finished my chatbot project-edit project" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat:finished my chatbot project-edit project" />
+    <MESSAGE value="feat:finished my chatbot project-edit project-1" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:finished my chatbot project-edit project-1" />
   </component>
 </project>
